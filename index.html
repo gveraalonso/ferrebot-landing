@@ -471,23 +471,16 @@ async function enviarDemo() {
     return;
   }
 
-  // Enviar lead a la API
-  try {
-    const resp = await fetch('/api/leads', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nombre: nom, telefono: wa, tienda: tienda })
-    });
-    const data = await resp.json();
-    if (data.ok) {
-      document.getElementById('form-content').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    } else {
-      alert('Error al enviar. Intenta de nuevo.');
-    }
-  } catch(e) {
-    alert('Error de conexión. Intenta de nuevo.');
-  }
+  // Enviar directamente a WhatsApp
+  var mensaje = encodeURIComponent('Hola! 👋
+
+Soy ' + nom + (tienda ? ', de ' + tienda : '') + '.
+
+Quiero probar FerreBot. ¿Me cuentas cómo funciona?');
+  window.open('https://wa.me/34615461946?text=' + mensaje, '_blank');
+
+  document.getElementById('form-content').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
 }
 </script>
 
