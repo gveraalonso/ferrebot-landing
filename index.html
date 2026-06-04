@@ -105,8 +105,6 @@ nav {
  text-decoration: none; display: inline-block;
 }
 .btn-primary:hover { background: var(--amber-d); transform: translateY(-1px); }
-
-
 .chat-header {
  background: var(--amber); color: white;
  display: flex; align-items: center; gap: 10px;
@@ -224,7 +222,6 @@ nav {
  </div>
  </div>
 </section>
-
 
 <!-- A MEDIDA -->
 <section class="section" id="presupuesto">
@@ -355,12 +352,8 @@ async function enviarDemo() {
   }
 
   // Enviar directamente a WhatsApp
-  var mensaje = encodeURIComponent('Hola! 👋
-
-Soy ' + nom + (tienda ? ', de ' + tienda : '') + '.
-
-Quiero probar FerreBot. ¿Me cuentas cómo funciona?');
-  window.open('https://wa.me/34615461946?text=' + mensaje, '_blank');
+  var mensaje = 'Hola! 👋\n\nSoy ' + nom + (tienda ? ', de ' + tienda + '.' : '') + '\n\nQuiero probar FerreBot. ¿Me cuentas cómo funciona?';
+  window.open('https://wa.me/34615461946?text=' + encodeURIComponent(mensaje), '_blank');
 
   document.getElementById('form-content').style.display = 'none';
   document.getElementById('form-success').style.display = 'block';
